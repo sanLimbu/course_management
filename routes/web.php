@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Course;
+use App\Http\Controllers\CourseController;
 
-Route::get('/courses', function () {
-    $courses = Course::with('students')->get();
-    return view('courses.index', compact('courses'));
-});
+Route::get('/courses', [CourseController::class, 'index']);
